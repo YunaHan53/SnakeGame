@@ -9,6 +9,9 @@ class Food(Turtle):
         self.speed("fastest")
         self.penup()
         self.shapesize(stretch_wid=.5, stretch_len=.5)
+        self.move()
+
+    def move(self):
         ran_x = random.randrange(-280, 280)
         ran_y = random.randrange(-280, 280)
         self.goto(ran_x, ran_y)
