@@ -31,6 +31,7 @@ while game_is_on:
     # Detect collision with food
     if snake.head.distance(food) < 15:
         food.move()
+        snake.grow()
         score.scoring()
 
     # Detect collision with the walls
@@ -40,5 +41,12 @@ while game_is_on:
         score.game_over()
         game_is_on = False
 
+    # Detect collision with the tail
+    for seg in snake.snake_segments:
+        if seg == snake.head or seg == snake.snake_segments[1] or seg == snake.snake_segments[2]:
+            pass
+        elif snake.head.distance(seg) < 10:
+            game_is_on = False
+            score.game_over()
 
 screen.exitonclick()
