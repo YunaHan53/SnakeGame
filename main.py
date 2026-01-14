@@ -33,4 +33,12 @@ while game_is_on:
         food.move()
         score.scoring()
 
+    # Detect collision with the walls
+    current_x_pos = snake.head.xcor()
+    current_y_pos = snake.head.ycor()
+    if current_x_pos <= -295 or current_y_pos <= -295 or current_x_pos >= 295 or current_y_pos >= 295:
+        score.game_over()
+        game_is_on = False
+
+
 screen.exitonclick()
