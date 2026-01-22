@@ -38,13 +38,13 @@ while game_is_on:
     current_x_pos = snake.head.xcor()
     current_y_pos = snake.head.ycor()
     if current_x_pos <= -295 or current_y_pos <= -295 or current_x_pos >= 295 or current_y_pos >= 295:
-        score.game_over()
-        game_is_on = False
+        score.reset_scoreboard()
+        snake.reset_snake()
 
     # Detect collision with the tail
     for seg in snake.snake_segments[3:]:
         if snake.head.distance(seg) < 10:
-            game_is_on = False
-            score.game_over()
+            score.reset_scoreboard()
+            snake.reset_snake()
 
 screen.exitonclick()
