@@ -23,6 +23,14 @@ class Snake:
         new_snake_seg.penup()
         self.snake_segments.append(new_snake_seg)
 
+    def reset_snake(self):
+        """Removes and relocates the old snake, then create a new one for next round"""
+        for seg in self.snake_segments:
+            seg.goto(1000, 1000)
+        self.snake_segments.clear()
+        self.create_snake()
+        self.head = self.snake_segments[0]
+
     def grow(self):
         """Adds a new segment to the snake"""
         self.add_segment(self.snake_segments[-1].position())
